@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Confirmed</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --ring: #e7f5ee;
+      --green: #16a34a; /* Tailwind green-600 */
+      --green-dark: #15803d; /* Tailwind green-700 */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(1000px 600px at 50% -20%, #ffffff, var(--bg));
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .tick {
+      width: 132px;
+      height: 132px;
+      border-radius: 999px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px auto;
+      position: relative;
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 6px var(--ring);
+      animation: pop 0.5s ease-out both, glow 1.6s ease-in-out 1s infinite alternate;
+    }
+
+    svg {
+      width: 56%;
+      height: 56%;
+      stroke: var(--green);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      overflow: visible;
+    }
+
+    .check {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: draw 0.6s 0.2s ease-out forwards;
+    }
+
+    .title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--green);
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      background: var(--green);
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    @keyframes draw {
+      to { stroke-dashoffset: 0; }
+    }
+    
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 0 0 0 rgba(22,163,74,0.25), inset 0 0 0 6px var(--ring); }
+      to   { box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 0 0 12px rgba(22,163,74,0.15), inset 0 0 0 6px var(--ring); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="tick" role="img" aria-label="Order Confirmed">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path class="check" d="M16 33 L28 45 L48 23" />
+      </svg>
+    </div>
+    <div class="title">Order Confirmed</div>
+    <a href="/" class="btn">⬅ Back to Home</a>
+  </div>
+</body>
+</html>
